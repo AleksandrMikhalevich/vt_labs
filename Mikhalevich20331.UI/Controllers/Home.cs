@@ -21,7 +21,7 @@ namespace Mikhalevich20331.UI.Controllers
         }
         public IActionResult Index()
         {
-            ViewData["text"] = "Лабораторная работа 3";
+            ViewData["text"] = "Лабораторная работа 4";
             SelectList data = new SelectList(_listData, "Id", "Name");
             return View(data);
         }

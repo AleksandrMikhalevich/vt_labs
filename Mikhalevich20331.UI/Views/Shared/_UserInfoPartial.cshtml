@@ -10,13 +10,13 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
             @User.Claims.FirstOrDefault(c => c.Type.Equals("Name", StringComparison.OrdinalIgnoreCase))?.Value
-            <img src="images/default-profile-picture.png" width="20"
+            <img src="@Url.Action("GetAvatar","Image")" width="30"
                  alt="User" class="rounded nav-color" />
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li>
                 <span class="dropdown-item-text">
-                    <img src="images/default-profile-picture.png"
+                    <img src="@Url.Action("GetAvatar","Image")"
                          width="50" alt="User" class="rounded" />
                     @User.Identity?.Name!
                 </span>
@@ -27,8 +27,7 @@
                       asp-area="Identity"
                       asp-route-returnurl="/"
                       asp-page="/Account/Logout">
-                    <button id="logout" type="submit" class="nav-link btn
-btn-link text-dark">
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark">
                         Logout
                     </button>
                 </form>
