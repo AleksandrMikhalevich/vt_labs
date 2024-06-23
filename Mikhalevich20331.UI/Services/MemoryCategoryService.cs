@@ -10,11 +10,11 @@ namespace Mikhalevich20331.UI.Services
             var categories = new List<Category>
         {
         new Category {Id=1, GroupName="Поводки",
-        NormalizedName="Поводки для собак"},
+        NormalizedName="Поводки"},
         new Category {Id=2, GroupName="Одежда",
-        NormalizedName="Одежда  для собак"},
-        new Category {Id=2, GroupName="Игрушки",
-        NormalizedName="Игрушки для собак"}
+        NormalizedName="Одежда"},
+        new Category {Id=3, GroupName="Игрушки",
+        NormalizedName="Игрушки"}
 
         };
             var result = new ResponseData<List<Category>>();

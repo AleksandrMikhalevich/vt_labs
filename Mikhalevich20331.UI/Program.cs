@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Mikhalevich20331.UI.Data;
+using Mikhalevich20331.UI.Services;
 using System.Security.Claims;
 
 namespace Mikhalevich20331.UI
@@ -35,7 +36,8 @@ namespace Mikhalevich20331.UI
             });
             builder.Services.AddSingleton<IEmailSender, NoOpEmailSender>();
 
-
+            builder.Services.AddScoped<ICategoryService, MemoryCategoryService>();
+            builder.Services.AddScoped<IProductService, MemoryProductService>();
 
             builder.Services.AddControllersWithViews();
 
