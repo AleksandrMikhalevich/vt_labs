@@ -17,9 +17,10 @@ namespace Mikhalevich20331.API.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(AppDbContext context, IWebHostEnvironment _environment)
         {
             _context = context;
+
         }
 
         // GET: api/Products
@@ -29,17 +30,21 @@ namespace Mikhalevich20331.API.Controllers
               int pageNo = 1,
               int pageSize = 3)
         {
+            // Создать объект результата
             var result = new ResponseData<ProductListModel<Product>>();
-            
-            var data = _context.Products
-                .Include(d => d.Category)
-                .Where(d => String.IsNullOrEmpty(category)
-                || d.Category.NormalizedName.Equals(category));
 
+            // Фильтрация по категории загрузка данных категории
+            var data = _context.Products
+            .Include(d => d.Category)
+            .Where(d => String.IsNullOrEmpty(category)
+            || d.Category.NormalizedName.Equals(category));
+
+            // Подсчет общего количества страниц
             int totalPages = (int)Math.Ceiling(data.Count() / (double)pageSize);
             if (pageNo > totalPages)
                 pageNo = totalPages;
 
+            // Создание объекта ProductListModel с нужной страницей данных
             var listData = new ProductListModel<Product>()
             {
                 Items = await data
@@ -59,7 +64,6 @@ namespace Mikhalevich20331.API.Controllers
             }
             return result;
         }
-
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
@@ -113,7 +117,7 @@ namespace Mikhalevich20331.API.Controllers
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+            return CreatedAtAction("PostProduct", new { id = product.Id }, product);
         }
 
         // DELETE: api/Products/5
@@ -135,6 +139,50 @@ namespace Mikhalevich20331.API.Controllers
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
+        }
+
+        [HttpPost("{id}")]
+
+        public async Task<IActionResult> SaveImage(int id, IFormFile image, [FromServices] IWebHostEnvironment env)
+        {
+            // Найти объект по Id
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            // Путь к папке wwwroot/Images
+            var imagesPath = Path.Combine(env.WebRootPath, "images");
+
+            // получить случайное имя файла
+            var randomName = Path.GetRandomFileName();
+
+            // получить расширение в исходном файле
+            var extension = Path.GetExtension(image.FileName);
+
+            // задать в новом имени расширение как в исходном файле
+            var fileName = Path.ChangeExtension(randomName, extension);
+
+            // полный путь к файлу
+            var filePath = Path.Combine(imagesPath, fileName);
+
+            // создать файл и открыть поток для записи
+            using var stream = System.IO.File.OpenWrite(filePath);
+
+            // скопировать файл в поток
+            await image.CopyToAsync(stream);
+
+            // получить Url хоста
+            var host = "https://" + Request.Host;
+
+            // Url файла изображения
+            var url = $"{host}/images/{fileName}";
+
+            // Сохранить url файла в объекте
+            product.Image = url;
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }

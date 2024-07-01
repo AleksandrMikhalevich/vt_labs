@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mikhalevich20331.API.Data;
 using Mikhalevich20331.ZooshopDomain.Entities;
+using Mikhalevich20331.ZooshopDomain.Models;
 
 namespace Mikhalevich20331.API.Controllers
 {
@@ -23,9 +24,13 @@ namespace Mikhalevich20331.API.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<ResponseData<IEnumerable<Category>>>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            var response = new ResponseData<IEnumerable<Category>>
+            {
+                Data = await _context.Categories.ToListAsync()
+            };
+            return response;
         }
 
         // GET: api/Categories/5

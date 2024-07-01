@@ -39,6 +39,12 @@ namespace Mikhalevich20331.UI
             builder.Services.AddScoped<ICategoryService, MemoryCategoryService>();
             builder.Services.AddScoped<IProductService, MemoryProductService>();
 
+            builder.Services.AddHttpClient<IProductService, ApiProductService>(opt
+            => opt.BaseAddress = new Uri("https://localhost:7002/api/Products/"));
+            builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt
+            => opt.BaseAddress = new
+            Uri("https://localhost:7002/api/Categories/"));
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
