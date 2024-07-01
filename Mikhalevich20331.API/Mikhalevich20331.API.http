@@ -1,0 +1,6 @@
+@Mikhalevich20331.API_HostAddress = http://localhost:5091
+
+GET {{Mikhalevich20331.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

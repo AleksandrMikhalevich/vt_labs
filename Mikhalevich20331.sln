@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.UI", "Mikhalevich20331.UI\Mikhalevich20331.UI.csproj", "{6A911B00-72D1-437E-AED4-C5AE5B3C7AE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikhalevich20331.ZooshopDomain", "Mikhalevich20331.ZooshopDomain\Mikhalevich20331.ZooshopDomain.csproj", "{01752D3F-7623-412B-AE23-8DD209B31548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.ZooshopDomain", "Mikhalevich20331.ZooshopDomain\Mikhalevich20331.ZooshopDomain.csproj", "{01752D3F-7623-412B-AE23-8DD209B31548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikhalevich20331.API", "Mikhalevich20331.API\Mikhalevich20331.API.csproj", "{C25093CE-73C0-4A82-880A-C1B7F995103D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{01752D3F-7623-412B-AE23-8DD209B31548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01752D3F-7623-412B-AE23-8DD209B31548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01752D3F-7623-412B-AE23-8DD209B31548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
