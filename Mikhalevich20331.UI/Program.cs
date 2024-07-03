@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Mikhalevich20331.API.Data;
 using Mikhalevich20331.UI.Data;
 using Mikhalevich20331.UI.Services;
 using System.Security.Claims;
@@ -44,6 +45,8 @@ namespace Mikhalevich20331.UI
             builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt
             => opt.BaseAddress = new
             Uri("https://localhost:7002/api/Categories/"));
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
             builder.Services.AddControllersWithViews();
 

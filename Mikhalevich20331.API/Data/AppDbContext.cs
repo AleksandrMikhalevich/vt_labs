@@ -9,6 +9,5 @@ namespace Mikhalevich20331.API.Data
         public DbSet<Category> Categories { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
     }
 }

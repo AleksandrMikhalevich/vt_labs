@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.UI", "Mikh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.ZooshopDomain", "Mikhalevich20331.ZooshopDomain\Mikhalevich20331.ZooshopDomain.csproj", "{01752D3F-7623-412B-AE23-8DD209B31548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikhalevich20331.API", "Mikhalevich20331.API\Mikhalevich20331.API.csproj", "{C25093CE-73C0-4A82-880A-C1B7F995103D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.API", "Mikhalevich20331.API\Mikhalevich20331.API.csproj", "{C25093CE-73C0-4A82-880A-C1B7F995103D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
