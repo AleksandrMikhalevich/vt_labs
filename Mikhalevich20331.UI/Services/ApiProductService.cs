@@ -30,13 +30,13 @@ namespace Mikhalevich20331.UI.Services
             {
 
                 // получить созданный объект из ответа Api-сервиса
-                var Tovar = await response.Content.ReadFromJsonAsync<Product>();
+                var prod = await response.Content.ReadFromJsonAsync<Product>();
 
                 // создать объект запроса
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri($"{httpClient.BaseAddress.AbsoluteUri}{Tovar.Id}")
+                    RequestUri = new Uri($"{httpClient.BaseAddress.AbsoluteUri}{prod.Id}")
                 };
 
                 // Создать контент типа multipart form-data

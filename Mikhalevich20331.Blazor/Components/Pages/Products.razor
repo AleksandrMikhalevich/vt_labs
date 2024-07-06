@@ -1,0 +1,30 @@
+﻿@page "/products"
+@using Mikhalevich20331.Blazor.Components.ProductComponents
+@using Mikhalevich20331.ZooshopDomain.Entities
+@using Mikhalevich20331.ZooshopDomain.Models
+@using Mikhalevich20331.Blazor.Services
+
+
+@rendermode InteractiveServer
+
+<CascadingValue Value="ProductService">
+<KosList ProductSelected="ShowDetails" />
+<Pager/>
+</CascadingValue>
+
+<KosDetails product="SelectedProduct" />
+
+@code {
+[Inject] IProductService<Product> ProductService { get; set; }
+
+[Parameter]
+	public Product SelectedProduct { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+	await ProductService.GetProducts();
+	}
+	void ShowDetails(int id)
+	{
+	SelectedProduct = ProductService.Products.First(d => d.Id == id);
+	}
+}

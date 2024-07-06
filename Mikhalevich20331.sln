@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.ZooshopDom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mikhalevich20331.API", "Mikhalevich20331.API\Mikhalevich20331.API.csproj", "{C25093CE-73C0-4A82-880A-C1B7F995103D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mikhalevich20331.Blazor", "Mikhalevich20331.Blazor\Mikhalevich20331.Blazor.csproj", "{9342CAD9-604A-4761-9C80-D8FDF3227D10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C25093CE-73C0-4A82-880A-C1B7F995103D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9342CAD9-604A-4761-9C80-D8FDF3227D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9342CAD9-604A-4761-9C80-D8FDF3227D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9342CAD9-604A-4761-9C80-D8FDF3227D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9342CAD9-604A-4761-9C80-D8FDF3227D10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
